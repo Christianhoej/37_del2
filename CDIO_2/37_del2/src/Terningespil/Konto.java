@@ -1,10 +1,10 @@
 package Terningespil;
 
-public class Konto {
+public class Account {
 
 	private int balance;
 
-	public Konto() {
+	public Account() {
 		balance=1000;
 	}
 
@@ -14,14 +14,14 @@ public class Konto {
 	}
 
 	//Metode til når spilleren får penge
-	public int indsætPenge(int beløb) {
+	public int deposit(int amount) {
 		while (balance>=0) {
-			if (beløb>=0) {
-				balance += beløb;
+			if (amount>=0) {
+				balance += amount;
 				return balance;
 			}
 			else 
-				balance -= beløb;
+				balance -= amount;
 			return balance;
 		}
 		return balance;
