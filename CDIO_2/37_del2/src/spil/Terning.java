@@ -1,16 +1,20 @@
-package game;
-
-//If another type of dice is wanted change the MAX_VALUE to the desired max number on the dice, and the MIN_VALUE to the lowest desired number on the dice.
-public class Dice {
-	private int value;
-	private final int MAX_VALUE = 6;
-	private final int MIN_VALUE = 1;
+package spil;
+public class Terning {
+	private int værdi;
+	private int maxVærdi = 6;
+	private int minVærdi = 1;
 	
-	public int getValue() {
-		return value;
+	public Terning(int minVærdi, int maxVærdi){
+		this.maxVærdi = maxVærdi;
+		this.minVærdi = minVærdi;
 	}
-	public void throwDice()
+	public Terning(){
+	}
+	public int getVærdi() {
+		return værdi;
+	}
+	public void kastTerning()
 	{
-		value =(int)(Math.random()*MAX_VALUE)+MIN_VALUE;//(int) = cast -> hurtig måde at konvertere datatyper på.
+		værdi =(int)(Math.random()*maxVærdi)+minVærdi;
 	}
 }
