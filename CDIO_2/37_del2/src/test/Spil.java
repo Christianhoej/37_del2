@@ -1,6 +1,6 @@
 package test;
 
-import java.io.IOException; 
+import java.io.IOException;  
 
 import desktop_resources.GUI;
 import spil.Bræt;
@@ -11,11 +11,19 @@ import spil.Tur;
 public class Spil {
 
 	public static void main(String[] args) {
+		skrivfil fil = new skrivfil();
+		try {
+			fil.skrivFil();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		Bræt bræt = new Bræt();
 		bræt.lavBræt();
 		Sprog sp = new Sprog();
 		try {
-			sp.tekst("dansk.txt");
+			sp.tekst("Dansk.txt");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -40,10 +48,6 @@ public class Spil {
 				if (fundetVinder == true)
 					break;
 			}
-
 		}
-
 	}
-
 }
-
