@@ -1,6 +1,6 @@
-package game;
+package Terningespil;
 
-public class Throw {
+public class Kast {
 	private int sum;
 	private int dice1Value;
 	private int dice2Value;
