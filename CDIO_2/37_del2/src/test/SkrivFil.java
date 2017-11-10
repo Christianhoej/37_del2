@@ -4,16 +4,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 
 public class skrivfil {
-	public static void main(String[] args){
-		try {
-			skrivFil();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	public static void skrivFil() throws Exception {
+	
+	public void skrivFil() throws Exception {
 		BufferedWriter bw = new BufferedWriter(new FileWriter("Dansk.txt"));
 
 		bw.write("winner");
