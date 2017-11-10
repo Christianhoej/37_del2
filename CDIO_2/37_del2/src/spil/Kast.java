@@ -2,34 +2,31 @@ package spil;
 
 public class Kast {
 	private int sum;
-	private int dice1Value;
-	private int dice2Value;
-	
-Dice dice1 = new Dice();
-Dice dice2 = new Dice();
+	private int terning1Værdi;
+	private int terning2Værdi;
 
-public void throwDice() {
-	dice1.throwDice();
-	dice1Value = dice1.getValue();
-	
-	dice2.throwDice();
-	dice2Value = dice2.getValue();
+	Terning terning1 = new Terning();
+	Terning terning2 = new Terning();
 
-	
-	sum = dice1.getValue() + dice2.getValue();
-}
+	public void kastTerninger() {
+		terning1.kastTerning();
+		terning1Værdi = terning1.getVærdi();
 
-public int getDice1Value() {
-	return dice1Value;
-}
+		terning2.kastTerning();
+		terning2Værdi = terning2.getVærdi();
 
-public int getDice2Value() {
-	return dice2Value;
-}
+		sum = terning2.getVærdi() + terning1.getVærdi();
+	}
 
-public int getSum() {
-	return sum;
-}
-	
+	public int getTerning1Værdi() {
+		return terning1Værdi;
+	}
 
+	public int getTerning2Værdi() {
+		return terning2Værdi;
+	}
+
+	public int getSum() {
+		return sum;
+	}
 }
