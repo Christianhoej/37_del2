@@ -1,4 +1,4 @@
-package Terningespil;
+package spil;
 
 public class Kast {
 	private int sum;
