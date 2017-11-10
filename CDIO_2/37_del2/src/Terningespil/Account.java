@@ -1,30 +1,33 @@
-package Terningespil;
+package spil;
 
 public class Account {
+	//private int startBeholdning;
+	private int beholdning;
+	private int minBeholdning;
+	private int vinderBeholdning;
 
-	private int balance;
+	public Konto(int startBeholdning, int minBeholdning, int vinderBeholdning){//constructor
+		beholdning = startBeholdning;
+		this.minBeholdning = minBeholdning;
+		this.vinderBeholdning = vinderBeholdning;
 
-	public Account() {
-		balance=1000;
 	}
 
-	//Metode for getBalance
-	public int getBalance() {
-		return balance;
-	}
-
-	//Metode til når spilleren får penge
-	public int deposit(int amount) {
-		while (balance>=0) {
-			if (amount>=0) {
-				balance += amount;
-				return balance;
-			}
-			else 
-				balance -= amount;
-			return balance;
+	public boolean opdaterBeholdning(int beholdning){//opdaterer beholdning alt efter parameteren den modtager og sikrer at minimumsbeholdning ikke overskrides
+		this.beholdning +=beholdning;
+		if(this.beholdning<minBeholdning){
+			this.beholdning=minBeholdning;
+			return true;
 		}
-		return balance;
+		else
+			return false;	
 	}
 
+	public int getBeholdning(){//Henter beholdning
+		return beholdning;
+	}
+
+	public int getVinderBeholdning() {//returnerer grænseværdie for hvornår der er vundet.
+		return vinderBeholdning;
+	}
 }
