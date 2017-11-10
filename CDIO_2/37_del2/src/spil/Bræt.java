@@ -8,7 +8,7 @@ import desktop_fields.Shipping;
 import desktop_fields.Start;
 import desktop_resources.GUI;
 
-
+// Denne klasse opretter brættet med de 12 forskellige felter, hvor felt 1 er et startfelt, da vi ikke kan få 1. 
 public class Bræt{
 	Sprog sp = new Sprog();
 	public void lavBræt() {
@@ -18,9 +18,7 @@ public class Bræt{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
-
+		
 		Field[] fields = new Field[12];
 		fields[0] = new Start.Builder().setTitle("Start").setSubText("").setDescription("").setBgColor(Color.RED).build();
 
@@ -102,7 +100,6 @@ public class Bræt{
 				.setRent("+650")
 				.build();			
 		GUI.create(fields);
-
 		String rules = "";
 		for(int i=0; i<sp.getRules().length;i++){
 			rules +=sp.getRules()[i] +"\n";
