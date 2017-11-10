@@ -1,33 +1,55 @@
-package Terningespil;
+package spil;
+
+import java.io.IOException; 
+
+import desktop_resources.GUI;
 
 public class Spiller {
-
-	public Spiller() {
-	}
 	private String navn;
-	private String spiller;
-	private int penge;
 	private boolean vinder;
+	private Konto konto; 
 
-	//Metode for setNavn
-	public void setNavn(String navn) {
-		spiller = navn;
+	public Spiller(String navn, int startBeholdning) {
+		this.navn = navn;
+		konto = new Konto(startBeholdning, 0, 3000);
 	}
 
-	//Metode for getNavn
+
+
 	public String getNavn() {
-		return spiller;
-	}	
-	
-	
-	
-	//Metode for setVinder
-	public void setVinder(boolean vinder) {
-		this.vinder=vinder;
+		return navn;
 	}
-	//Metode for getVinder
-	public boolean getVinder() {
-		boolean resultat=vinder;
+
+	public int getPoint() {
+		return konto.getBeholdning();
+
+	}
+
+	public boolean isVinder() {
 		return vinder;
-	}	
+	}
+
+	public void brugTur(Tur tur) {
+		Sprog sp = new Sprog();
+		try {
+			sp.tekst("dansk.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		int omgangspoint = 0;
+		do {
+			omgangspoint = tur.brugOmgang();
+			boolean negativBeholdning = konto.opdaterBeholdning(omgangspoint);
+			if(negativBeholdning == true)
+				GUI.displayChanceCard(sp.getNegativeSaldo());
+			int beholdning = konto.getBeholdning();
+			GUI.setBalance(navn, beholdning);
+			if(konto.getBeholdning() >= konto.getVinderBeholdning()) {
+				this.vinder=true;
+				GUI.displayChanceCard(navn + " " + sp.getWinner());
+			}
+
+		}while(omgangspoint == -80);
+	}
 }
