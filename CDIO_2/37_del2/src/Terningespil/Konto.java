@@ -1,6 +1,6 @@
 package spil;
 
-public class Account {
+public class Konto {
 	//private int startBeholdning;
 	private int beholdning;
 	private int minBeholdning;
